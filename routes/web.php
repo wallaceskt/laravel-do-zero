@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 // Rotas do site
 Route::namespace('App\Http\Controllers\Site')->group(function() {
-    Route::get('/', 'HomeController');
+    Route::get('/', 'HomeController')->name('site.home');
 
-    Route::get('/produtos', 'CategoryController@index');
-    Route::get('/produtos/{slug}', 'CategoryController@show');
+    Route::get('/produtos', 'CategoryController@index')->name('site.products');
+    Route::get('/produtos/{slug}', 'CategoryController@show')->name('site.products.category');
 
-    Route::get('/blog', 'BlogController');
+    Route::get('/blog', 'BlogController')->name('site.blog');
 
-    Route::get('/sobre', 'AboutController');
-    // Route::get('/sobre', 'site.about.index');
+    Route::get('/sobre', 'AboutController')->name('site.about');
+    // Route::get('/sobre', 'site.about.index')->name('site.');
 
-    Route::get('/contato', 'ContactController@index');
-    Route::post('/contato', 'ContactController@form');
+    Route::get('/contato', 'ContactController@index')->name('site.contact');
+    Route::post('/contato', 'ContactController@form')->name('site.contact.form');
 });
