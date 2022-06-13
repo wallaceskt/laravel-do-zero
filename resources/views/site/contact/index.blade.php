@@ -55,7 +55,7 @@
 
                     </div>
 
-                    <a title="clique no número do telefone para ligar" href="tel:169999999">(16) 99999-9999</a>
+                    <a title="clique no número do telefone para ligar" href="tel:859999999">(85) 99999-9999</a>
 
                 </div>
 
