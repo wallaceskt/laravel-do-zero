@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactFormRequest;
 use App\Notifications\NewContact;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
@@ -26,11 +26,19 @@ class ContactController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function form(Request $request)
+    public function form(ContactFormRequest $request)
     {
         $contact = Contact::create($request->all());
 
         Notification::route('mail', config('mail.from.address'))->notify(new NewContact($contact));
-        ddd($contact);
+
+        toastr()->success('O formulário foi enviado com sucesso!');
+
+        return back();
+        
+        // return redirect()->route('site.contact')->with([
+        //     'success' => true,
+        //     'message' => 'O formulário foi enviado com sucesso!'
+        // ]);
     }
 }
