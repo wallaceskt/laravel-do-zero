@@ -39,6 +39,9 @@
 
     <link rel="stylesheet" href="{{ asset('lightbox/css/lightbox.css') }}">
 
+    <!-- Estilos par Toastr.js notifications -->
+    @toastr_css
+
     <style>
         .cultivation__category .infos__category {
             left: 120px;
@@ -77,6 +80,16 @@
             top: -50px;
             z-index: -1;
         } */
+
+        .notification {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: normal;
+        }
+
+        .notification.textarea {
+            margin-top: -6px !important;
+        }
     </style>
 </head>
 
@@ -198,6 +211,10 @@
 
 <!-- Lightbox -->
 <script src="{{ asset('lightbox/js/lightbox.js') }}"></script>
+
+<!-- Toastr.js notifications -->
+@toastr_js
+@toastr_render
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <script>

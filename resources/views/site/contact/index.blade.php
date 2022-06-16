@@ -15,7 +15,7 @@
 
                 @csrf
                 @if(session('success'))
-                    <div>
+                    <div class="notification">
                         {{ session('message') }}
                     </div>
                 @endif
@@ -25,19 +25,19 @@
                 <label for="name">Nome completo</label>
                 <input id="name" name="name" type="text" tabindex="1" placeholder="Ex: José da Silva" autofocus value="{{ old('name') }}">
                 @error('name')
-                    <div>{{ $message }}</div>
+                    <div class="notification">{{ $message }}</div>
                 @enderror
 
                 <label for="email">E-mail</label>
                 <input id="email" name="email" type="text" tabindex="2" placeholder="Ex: email@email.com.br" value="{{ old('email') }}">
                 @error('email')
-                    <div>{{ $message }}</div>
+                    <div class="notification">{{ $message }}</div>
                 @enderror
 
                 <label for="message">Mensagem</label>
                 <textarea id="message" name="message" tabindex="3" cols="20" rows="4" placeholder="Digite aqui...">{{ old('message') }}</textarea>
                 @error('message')
-                    <div>{{ $message }}</div>
+                    <div class="notification textarea">{{ $message }}</div>
                 @enderror
 
                 <button class="button button_primary" type="submit">Enviar mensagem</button>
