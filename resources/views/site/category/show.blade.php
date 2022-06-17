@@ -61,7 +61,7 @@
 
                     <h3 class="title-medium">{{ $product->name }}</h3>
                     <!-- Tooggle item -->
-                    <span class="collapse__open"></span>
+                    <span class="collapse__icon"></span>
 
                 </header>
 
@@ -87,5 +87,50 @@
     </section>
 
 </div>
+
+<style>
+section .product__desciption {
+    max-height: fit-content;
+    padding: 20px 0 !important;
+}
+.product__content {
+    padding: 0 18px !important;
+    /* background-color: white; */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.collapse__icon::after {
+  /* content: '\02795'; // Unicode character for "plus" sign (+)
+  font-size: 13px;
+  color: #777; */
+  content: url('../images/collapse-closed.svg');
+  float: right;
+  margin-left: 5px;
+}
+
+.active .collapse__icon::after {
+  /*content: "\2796";  Unicode character for "minus" sign (-) */
+  content: url('../images/collapse-open.svg');
+}
+</style>
+
+<script>
+var acc = document.getElementsByClassName("clickable-area");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+    });
+}
+</script>
 
 @endsection

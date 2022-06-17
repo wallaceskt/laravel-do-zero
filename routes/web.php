@@ -18,7 +18,7 @@ Route::namespace('App\Http\Controllers\Site')->group(function() {
     Route::get('/', 'HomeController')->name('site.home');
 
     Route::get('/produtos', 'CategoryController@index')->name('site.products');
-    Route::get('/produtos/{slug}', 'CategoryController@show')->name('site.products.category');
+    Route::get('/produtos/{category}', 'CategoryController@show')->name('site.products.category');
 
     Route::get('/blog', 'BlogController')->name('site.blog');
 
