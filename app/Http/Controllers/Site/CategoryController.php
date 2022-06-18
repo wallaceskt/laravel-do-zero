@@ -20,13 +20,8 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param $category
-     */
     public function show(Category $category)
     {
-        return view('site.category.show', ['category' => $category]);
+        return view('site.category.show', ['category' => $category->load('products')]);
     }
 }

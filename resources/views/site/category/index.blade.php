@@ -22,7 +22,7 @@
         @foreach($categories as $category)
             <article class="card__product">
 
-                <a href="{{ route('site.products.category', ['category' => $category->id]) }}">
+                <a href="{{ route('site.products.category', ['category' => $category]) }}">
 
                     <div class="card__cover">
 

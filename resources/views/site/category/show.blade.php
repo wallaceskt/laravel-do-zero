@@ -6,7 +6,7 @@
 
     <div class="header-wrapper">
 
-        <h1 class="title-large">With apples drink teriyaki.</h1>
+        {{-- <h1 class="title-large">With apples drink teriyaki.</h1> --}}
 
     </div>
 
@@ -18,19 +18,19 @@
 
     <aside class="product__selected">
 
-        <article class="card__product">
+        <article class="card__product card__product-category">
 
             <a href="products-detail.php">
 
                 <div class="card__cover">
 
-                    <img src="{{ asset($category->image) }}" style="width: 322px;">
+                    <img src="{{ asset($category->image) }}"><!--  style="width: 322px;" -->
 
                 </div>
 
                 <header class="card__product-header">
 
-                    <h2 class="title-medium">{{ $category->name }}</h2>
+                    <h1 class="title-medium">{{ $category->name }}</h1>
                     <p>{{ $category->description }}</p>
 
                 </header>
@@ -89,6 +89,16 @@
 </div>
 
 <style>
+.card__product-category {
+    height: auto !important;
+    max-height: fit-content !important;
+}
+
+.card__product a .card__cover {
+    max-height: 100% !important;
+    max-width: fit-content;
+    overflow: hidden;
+}
 section .product__desciption {
     max-height: fit-content;
     padding: 20px 0 !important;
@@ -102,17 +112,17 @@ section .product__desciption {
 }
 
 .collapse__icon::after {
-  /* content: '\02795'; // Unicode character for "plus" sign (+)
-  font-size: 13px;
-  color: #777; */
-  content: url('../images/collapse-closed.svg');
-  float: right;
-  margin-left: 5px;
+    /* content: '\02795'; // Unicode character for "plus" sign (+)
+    font-size: 13px;
+    color: #777; */
+    content: url('../images/collapse-closed.svg');
+    float: right;
+    margin-left: 5px;
 }
 
 .active .collapse__icon::after {
-  /*content: "\2796";  Unicode character for "minus" sign (-) */
-  content: url('../images/collapse-open.svg');
+    /*content: "\2796";  Unicode character for "minus" sign (-) */
+    content: url('../images/collapse-open.svg');
 }
 </style>
 
